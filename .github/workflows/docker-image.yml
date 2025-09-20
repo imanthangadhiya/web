@@ -1,0 +1,19 @@
+name: Docker Image CI
+
+on:
+  pull_request:
+    branches: [ "**" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: codebase/rdicidr-0.1.0
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build -t web:latest -f Dockerfile .
