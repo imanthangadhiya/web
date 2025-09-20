@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . .
 
-RUN npm run lint && npm run prettier -- -- write && CI=true npm run test && npm run build
+RUN npm run lint && npm run prettier -- --write && CI=true npm run test && npm run build
 
 FROM nginx:alpine
 
